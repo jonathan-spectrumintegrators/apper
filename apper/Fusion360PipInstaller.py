@@ -218,10 +218,10 @@ def _get_python_folder():
     system = platform.system()
 
     if system == "Windows":
-        python_folder = Path(os.__file__).parents[1]
+        python_folder = Path(sys.executable).parents[0]
 
     elif system == "Darwin":
-        python_folder = Path(os.__file__).parents[2] / "bin"
+        python_folder = Path(sys.executable).parents[1] / "bin"
         _check_install_pip(python_folder)
 
     else:
